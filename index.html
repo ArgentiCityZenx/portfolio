@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NUPROMPTDEV | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --card-bg: #141414;
+            --text-main: #ffffff;
+            --text-dim: #999999;
+            --accent: #ffffff;
+            --border: #222222;
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeInUp 0.8s cubic-bezier(0.2, 0.6, 0.2, 1) forwards;
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* NAVBAR */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 0;
+        }
+
+        .logo { font-weight: 700; letter-spacing: 2px; font-size: 1.1rem; }
+        .nav-links { display: flex; align-items: center; gap: 30px; }
+        .nav-links a { color: var(--text-dim); text-decoration: none; font-size: 0.9rem; }
+        .btn-browse {
+            background: #fff;
+            color: #000 !important;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+
+        /* HERO */
+        .hero {
+            text-align: center;
+            padding: 100px 0;
+        }
+        .hero span { color: var(--text-dim); text-transform: uppercase; letter-spacing: 4px; font-size: 0.8rem; }
+        .hero h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 700; margin: 20px 0; letter-spacing: -2px; }
+        .hero p { color: var(--text-dim); font-size: 1.1rem; max-width: 600px; margin: 0 auto 40px; }
+        
+        .hero-btns { display: flex; justify-content: center; gap: 20px; }
+        .btn-white { background: #fff; color: #000; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: 0.3s; }
+        .btn-white:hover { background: #ccc; }
+        .btn-outline { border: 1px solid #333; color: #fff; padding: 15px 35px; border-radius: 50px; text-decoration: none; transition: 0.3s; }
+        .btn-outline:hover { background: #111; }
+
+        /* COLLECTION GRID */
+        .collection { padding: 80px 0; text-align: center; }
+        .collection h2 { font-size: 2.5rem; margin-bottom: 60px; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: left;
+            position: relative;
+            border: 1px solid transparent;
+            transition: 0.4s ease;
+        }
+        .card:hover { border-color: #444; transform: translateY(-5px); }
+
+        .card-tag { font-size: 0.7rem; color: var(--text-dim); background: #222; padding: 4px 10px; border-radius: 5px; text-transform: uppercase; }
+        .card-price { float: right; color: var(--text-dim); font-size: 0.9rem; }
+        .card h3 { margin: 25px 0 15px; font-size: 1.5rem; }
+        .card p { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 30px; min-height: 60px; }
+        
+        .btn-card {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #333;
+            border-radius: 50px;
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+        .btn-card:hover { background: #fff; color: #000; }
+
+        /* ABOUT SECTION */
+        .about { text-align: center; padding: 120px 0; border-top: 1px solid #1a1a1a; }
+        .about h2 { font-size: 2.5rem; margin: 20px 0; }
+
+        /* FOOTER */
+        footer {
+            padding: 50px 0;
+            border-top: 1px solid #1a1a1a;
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-dim);
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.8rem; }
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <nav class="fade-in">
+            <div class="logo">NUPROMPTDEV</div>
+            <div class="nav-links">
+                <a href="#prompts">Prompts</a>
+                <a href="#about">About</a>
+                <a href="https://promptaimarket.com/profile/argentidev" class="btn-browse">Browse</a>
+            </div>
+        </nav>
+
+        <section class="hero fade-in delay-1">
+            <span>Premium AI Prompt Engineering</span>
+            <h1>AI Prompts That Replace<br>Hours of Work</h1>
+            <p>Automate decisions, build systems, and scale faster with ready-to-use AI workflows</p>
+            <div class="hero-btns">
+                <a href="#prompts" class="btn-white">View Prompts</a>
+                <a href="https://promptaimarket.com/profile/argentidev" class="btn-outline">Start with a Free Prompt</a>
+            </div>
+        </section>
+
+        <section id="prompts" class="collection fade-in delay-2">
+            <span style="color: var(--text-dim); letter-spacing: 3px; text-transform: uppercase; font-size: 0.8rem;">The Collection</span>
+            <h2>Prompts Built for Results</h2>
+
+            <div class="grid">
+                <div class="card">
+                    <span class="card-tag">Popular</span>
+                    <span class="card-price">$2.99</span>
+                    <h3>Agentic Workflow System</h3>
+                    <p>Build AI agents that execute tasks, make decisions, and work 24/7 on autopilot.</p>
+                    <a href="https://promptaimarket.com/prompt/build-autonomous-ai-agents-that-work-for-you-agentic-workflow-system" class="btn-card">View Prompt</a>
+                </div>
+
+                <div class="card">
+                    <span class="card-tag">Popular</span>
+                    <span class="card-price">$2.49</span>
+                    <h3>Solo Founder System</h3>
+                    <p>Solo founder? Let AI be your team — from strategy to execution of your digital business.</p>
+                    <a href="https://promptaimarket.com/prompt/build-a-profitable-business-alone-with-ai-solo-founder-system" class="btn-card">View Prompt</a>
+                </div>
+
+                <div class="card">
+                    <span class="card-tag">Popular</span>
+                    <span class="card-price">$1.49</span>
+                    <h3>Smart Learning System AI</h3>
+                    <p>Accelerate learning with AI-optimized study plans and recursive knowledge frameworks.</p>
+                    <a href="https://promptaimarket.com/prompt/learn-anything-10x-faster-smart-learning-system-ai" class="btn-card">View Prompt</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about fade-in delay-3">
+            <span style="color: var(--text-dim); letter-spacing: 3px; text-transform: uppercase; font-size: 0.8rem;">About</span>
+            <h2>Who is NuPromptDev?</h2>
+            <p style="color: var(--text-dim); max-width: 600px; margin: 0 auto;">NuPromptDev builds high-performance AI prompts designed to automate thinking, decision-making, and execution.</p>
+            
+            <div style="margin-top: 100px;">
+                <h2 style="font-size: 3rem; margin-bottom: 30px;">Stop wasting time.<br>Start using systems.</h2>
+                <a href="https://promptaimarket.com/profile/argentidev" class="btn-white">Browse All Prompts</a>
+            </div>
+        </section>
+
+        <footer class="fade-in delay-3">
+            <div>© 2026 NuPromptDev. All rights reserved.</div>
+            <div style="display: flex; gap: 20px;">
+                <a href="#" style="color: inherit; text-decoration: none;">Prompts</a>
+                <a href="#" style="color: inherit; text-decoration: none;">About</a>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
