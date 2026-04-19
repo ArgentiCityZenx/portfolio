@@ -124,7 +124,7 @@
             <div class="input-group">
                 <input type="email" id="userEmail" placeholder="Your email for delivery" required>
             </div>
-            <div class="price">$1.90 <span style="font-size: 1rem; color: var(--text-dim);">USDC</span></div>
+            <div class="price">$1.99 <span style="font-size: 1rem; color: var(--text-dim);">USDC</span></div>
             <button onclick="createInvoice()" class="btn-buy">PURCHASE ACCESS</button>
         </div>
     </header>
@@ -153,7 +153,7 @@ async function createInvoice() {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                price_amount: 1.90,
+                price_amount: 1.99,
                 price_currency: 'usd',
                 pay_currency: 'usdc',
                 ipn_callback_url: IPN_URL,
