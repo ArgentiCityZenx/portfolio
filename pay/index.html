@@ -3,103 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Prompt Master Pack | Instant Access</title>
+    <title>AI Prompt Master Pack | Professional Collection</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/inter-ui/inter.css">
     <style>
         :root {
-            --accent: #00ff88;
             --bg: #0a0a0a;
-            --card: #141414;
-            --text: #ffffff;
-            --muted: #777777;
+            --card-bg: #141414;
+            --text-main: #ffffff;
+            --text-dim: #999999;
+            --accent: #00ff88; /* Volvemos al verde para el éxito, o blanco si prefieres total minimal */
+            --border: #222222;
         }
-        body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        .container {
-            background: var(--card);
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-            max-width: 420px;
-            width: 90%;
-            text-align: center;
-            border: 1px solid #222;
-        }
-        .badge {
-            background: rgba(0, 255, 136, 0.1);
-            color: var(--accent);
-            padding: 6px 15px;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        h1 { margin: 1.5rem 0 0.5rem; font-size: 1.8rem; }
-        .description { color: var(--muted); margin-bottom: 2rem; font-size: 0.95rem; }
-        
-        /* SECCIÓN PARA QUE COMPLETES DESPUÉS */
-        .specs {
-            text-align: left;
-            background: #1c1c1c;
-            padding: 1.5rem;
-            border-radius: 12px;
-            margin-bottom: 2rem;
-            border-left: 3px solid var(--accent);
-        }
-        .specs h3 { font-size: 0.9rem; margin-top: 0; color: var(--accent); text-transform: uppercase; }
-        .specs-list { list-style: none; padding: 0; margin: 0; font-size: 0.85rem; color: #ccc; }
-        .specs-list li { margin-bottom: 8px; }
 
-        .price { font-size: 2.5rem; font-weight: 800; margin-bottom: 1.5rem; }
-        .price span { font-size: 1rem; color: var(--muted); }
+        /* --- ANIMATIONS --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in { opacity: 0; animation: fadeInUp 0.8s cubic-bezier(0.2, 0.6, 0.2, 1) forwards; }
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        .cta-button {
-            display: block;
-            background: var(--accent);
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+        /* NAVBAR */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 0;
+        }
+        .logo { font-weight: 700; letter-spacing: 2px; font-size: 1.1rem; text-transform: uppercase; }
+
+        /* HERO / MAIN PRODUCT */
+        .hero { text-align: center; padding: 60px 0; }
+        .badge { 
+            display: inline-block;
+            background: rgba(255,255,255,0.05); 
+            color: var(--text-dim); 
+            text-transform: uppercase; 
+            letter-spacing: 4px; 
+            font-size: 0.7rem; 
+            padding: 8px 20px;
+            border-radius: 50px;
+            border: 1px solid var(--border);
+            margin-bottom: 30px;
+        }
+        .hero h1 { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 800; margin-bottom: 20px; letter-spacing: -2px; }
+        .hero p { color: var(--text-dim); font-size: 1.1rem; max-width: 600px; margin: 0 auto 40px; }
+
+        /* SPECS CARD */
+        .specs-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 40px;
+            margin: 40px auto;
+            text-align: left;
+            max-width: 500px;
+            transition: 0.4s ease;
+        }
+        .specs-card:hover { border-color: #444; }
+        .specs-card h3 { font-size: 0.9rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }
+        .specs-list { list-style: none; }
+        .specs-list li { margin-bottom: 12px; font-size: 1rem; display: flex; align-items: center; }
+        .specs-list li::before { content: "→"; margin-right: 15px; color: var(--accent); }
+
+        /* PRICING & CTA */
+        .price-section { margin: 40px 0; }
+        .price { font-size: 3.5rem; font-weight: 800; margin-bottom: 10px; }
+        .price span { font-size: 1rem; color: var(--text-dim); vertical-align: middle; }
+        
+        .btn-buy {
+            display: inline-block;
+            background: #fff;
             color: #000;
+            padding: 20px 60px;
+            border-radius: 50px;
             text-decoration: none;
-            padding: 1.1rem;
-            border-radius: 10px;
             font-weight: 700;
             font-size: 1.1rem;
-            transition: all 0.3s ease;
+            transition: 0.3s;
+            box-shadow: 0 10px 30px rgba(255,255,255,0.1);
         }
-        .cta-button:hover { transform: translateY(-2px); filter: brightness(1.1); }
-        .footer { margin-top: 1.5rem; font-size: 0.7rem; color: #444; }
+        .btn-buy:hover { background: var(--accent); transform: translateY(-3px); }
+
+        /* TUTORIAL SECTION */
+        .tutorial {
+            margin-top: 100px;
+            padding: 60px 40px;
+            border-top: 1px solid var(--border);
+            background: rgba(255,255,255,0.02);
+            border-radius: 30px;
+        }
+        .tutorial h2 { font-size: 1.8rem; margin-bottom: 30px; letter-spacing: -1px; }
+        .step-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: left;
+        }
+        .step { position: relative; }
+        .step-num { font-size: 0.8rem; color: var(--accent); font-weight: 800; margin-bottom: 10px; display: block; }
+        .step p { font-size: 0.9rem; color: var(--text-dim); }
+        .step a { color: #fff; text-decoration: underline; }
+
+        footer {
+            padding: 80px 0 40px;
+            text-align: center;
+            color: #444;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.8rem; }
+            .tutorial { padding: 40px 20px; }
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <span class="badge">AI Prompt Pack</span>
-    <h1>Special Selection</h1>
-    <p class="description">A curated collection of 10 high-performance prompts for professional AI generation.</p>
-    
-    <div class="specs">
-        <h3>What's inside:</h3>
-        <ul class="specs-list">
-            <li>• Prompt type 1: [Complete later]</li>
-            <li>• Prompt type 2: [Complete later]</li>
-            <li>• Compatible with: [Midjourney / GPT / etc]</li>
-            <li>• Includes: High-res output examples</li>
-        </ul>
-    </div>
+    <nav class="fade-in">
+        <div class="logo">SANTIAGO.AI</div>
+        <div class="badge">Limited Release v1.0</div>
+    </nav>
 
-    <div class="price">$1.90 <span>USDC</span></div>
+    <header class="hero fade-in delay-1">
+        <span class="badge">Premium Collection</span>
+        <h1>AI Master Pack</h1>
+        <p>10 engineered prompts designed for high-fidelity outputs in engineering, design, and realistic rendering.</p>
+        
+        <div class="specs-card">
+            <h3>Technical Specifications:</h3>
+            <ul class="specs-list">
+                <li>Prompt Category: [Technical / Photorealism]</li>
+                <li>Model Compatibility: [Midjourney v6.1 / DALL-E 3]</li>
+                <li>Aspect Ratio: [Optimized for 16:9 and 4:3]</li>
+                <li>Includes: Documentation & Usage Guide</li>
+            </ul>
+        </div>
 
-    <a href="https://nowpayments.io/payment/?iid=4460704257" class="cta-button">PAY & GET ACCESS</a>
+        <div class="price-section">
+            <div class="price">$1.90 <span>USDC (SOL)</span></div>
+            <a href="https://nowpayments.io/payment/?iid=4460704257" class="btn-buy">GET ACCESS NOW</a>
+        </div>
+    </header>
 
-    <div class="footer">
-        Instant Delivery via Crypto • Secure Transaction
-    </div>
+    <section class="tutorial fade-in delay-2">
+        <h2>How to acquire this pack</h2>
+        <div class="step-grid">
+            <div class="step">
+                <span class="step-num">01. WALLET</span>
+                <p>Ensure you have a Solana wallet (Phantom or Solflare) with at least 1.90 USDC.</p>
+            </div>
+            <div class="step">
+                <span class="step-num">02. NO FUNDS?</span>
+                <p>You can buy USDC instantly with your card at <a href="https://www.moonpay.com/buy" target="_blank">MoonPay</a> or <a href="https://transak.com/" target="_blank">Transak</a>.</p>
+            </div>
+            <div class="step">
+                <span class="step-num">03. PAYMENT</span>
+                <p>Click the button above. After the blockchain confirms (approx. 10s), you will be redirected to the download.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="fade-in delay-3">
+        SECURE CHECKOUT BY NOWPAYMENTS • ENCRYPTED DOWNLOAD • 2026
+    </footer>
 </div>
 
 </body>
